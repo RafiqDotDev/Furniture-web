@@ -48,23 +48,23 @@ export default function Contact() {
   ];
 
   return (
-    <div className="pt-32 pb-24 max-w-[1440px] mx-auto px-5 md:px-16">
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-24 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
       {/* Page Header */}
-      <header className="mb-20 text-center max-w-3xl mx-auto">
-        <span className="font-sans text-xs tracking-[0.3em] uppercase text-secondary mb-3 block">
+      <header className="mb-12 sm:mb-20 text-center max-w-3xl mx-auto">
+        <span className="font-sans text-xs tracking-[0.3em] uppercase text-secondary mb-2.5 block">
           Peshawar Showroom & Customer Support
         </span>
-        <h1 className="font-serif text-4xl md:text-6xl text-primary font-normal mb-6">Contact Us</h1>
-        <p className="font-sans text-base text-secondary font-light leading-relaxed">
+        <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl text-primary font-normal mb-4 sm:mb-6">Contact Us</h1>
+        <p className="font-sans text-sm sm:text-base text-secondary font-light leading-relaxed">
           Visit our flagship showroom on University Road, Peshawar, or contact our concierge team for custom design orders and home visits across Pakistan.
         </p>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-28">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16 sm:mb-28">
         {/* Booking Form */}
-        <div className="lg:col-span-7 glass-panel p-8 sm:p-12 rounded-3xl border border-black/5 shadow-2xl space-y-6">
+        <div className="lg:col-span-7 glass-panel p-5 sm:p-8 md:p-12 rounded-3xl border border-black/5 shadow-2xl space-y-6">
           <div>
-            <h2 className="font-serif text-3xl text-primary font-normal mb-2">Book a Free Design Consultation</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary font-normal mb-2">Book a Free Design Consultation</h2>
             <p className="font-sans text-xs text-secondary font-light">
               Connect with our Peshawar interior design experts in-person or at your home.
             </p>
@@ -160,7 +160,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="w-full bg-primary text-on-primary font-sans text-xs tracking-[0.2em] uppercase py-4 rounded-xl hover:bg-surface-tint transition-all shadow-xl font-bold"
+              className="w-full bg-primary text-on-primary font-sans text-xs tracking-[0.2em] uppercase py-4 rounded-xl hover:bg-surface-tint transition-all shadow-xl font-bold active:scale-[0.99]"
             >
               Submit Consultation Request
             </button>
@@ -169,28 +169,28 @@ export default function Contact() {
 
         {/* Showrooms & Contact Direct */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="glass-panel p-8 rounded-3xl border border-black/5 space-y-4">
-            <h3 className="font-serif text-2xl text-primary font-normal border-b border-outline-variant/30 pb-3">
+          <div className="glass-panel p-5 sm:p-8 rounded-3xl border border-black/5 space-y-4">
+            <h3 className="font-serif text-xl sm:text-2xl text-primary font-normal border-b border-outline-variant/30 pb-3">
               Pakistan Showrooms
             </h3>
 
             <div className="space-y-6 pt-2 font-sans text-xs text-secondary">
               <div>
-                <h4 className="font-serif text-lg text-primary font-medium">Peshawar Flagship Showroom</h4>
+                <h4 className="font-serif text-base sm:text-lg text-primary font-medium">Peshawar Flagship Showroom</h4>
                 <p>Main University Road, Near Tehkal, Peshawar</p>
                 <p className="text-[11px] text-secondary/80">Mon – Sat: 10:00 AM – 9:00 PM</p>
                 <p className="text-primary font-medium mt-1">+92 91 584 1234 / +92 300 555 1234</p>
               </div>
 
               <div className="border-t border-outline-variant/20 pt-4">
-                <h4 className="font-serif text-lg text-primary font-medium">Islamabad Atelier</h4>
+                <h4 className="font-serif text-base sm:text-lg text-primary font-medium">Islamabad Atelier</h4>
                 <p>F-7 Markaz, Main Boulevard, Islamabad</p>
                 <p className="text-[11px] text-secondary/80">Mon – Sat: 11:00 AM – 9:00 PM</p>
                 <p className="text-primary font-medium mt-1">+92 51 265 9876</p>
               </div>
 
               <div className="border-t border-outline-variant/20 pt-4">
-                <h4 className="font-serif text-lg text-primary font-medium">Lahore Gallery</h4>
+                <h4 className="font-serif text-base sm:text-lg text-primary font-medium">Lahore Gallery</h4>
                 <p>Gulberg III, M.M. Alam Road, Lahore</p>
                 <p className="text-[11px] text-secondary/80">Mon – Sat: 11:00 AM – 9:00 PM</p>
                 <p className="text-primary font-medium mt-1">+92 42 357 54321</p>
@@ -201,25 +201,25 @@ export default function Contact() {
       </div>
 
       {/* FAQ Accordion Section */}
-      <section className="max-w-4xl mx-auto border-t border-outline-variant/30 pt-16">
-        <h2 className="font-serif text-3xl md:text-4xl text-primary font-normal mb-8 text-center">
+      <section className="max-w-4xl mx-auto border-t border-outline-variant/30 pt-12 sm:pt-16">
+        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary font-normal mb-6 sm:mb-8 text-center">
           Frequently Asked Questions
         </h2>
 
         <div className="divide-y divide-outline-variant/30">
           {FAQS.map((faq, idx) => (
-            <div key={idx} className="py-5">
+            <div key={idx} className="py-4 sm:py-5">
               <button
                 onClick={() => setFaqOpenIndex(faqOpenIndex === idx ? null : idx)}
-                className="w-full flex justify-between items-center text-left font-serif text-xl text-primary font-normal focus:outline-none"
+                className="w-full flex justify-between items-center text-left font-serif text-lg sm:text-xl text-primary font-normal focus:outline-none py-1"
               >
-                <span>{faq.q}</span>
-                <span className="material-symbols-outlined text-secondary transition-transform duration-300">
+                <span className="pr-4">{faq.q}</span>
+                <span className="material-symbols-outlined text-secondary transition-transform duration-300 flex-shrink-0">
                   {faqOpenIndex === idx ? "remove" : "add"}
                 </span>
               </button>
               {faqOpenIndex === idx && (
-                <p className="mt-3 font-sans text-xs text-secondary leading-relaxed font-light animate-in fade-in duration-200">
+                <p className="mt-2.5 font-sans text-xs text-secondary leading-relaxed font-light animate-in fade-in duration-200">
                   {faq.a}
                 </p>
               )}

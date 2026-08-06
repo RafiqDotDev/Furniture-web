@@ -5,33 +5,32 @@ export default function Confirmation() {
   const [searchParams] = useSearchParams();
   const orderNumber = searchParams.get("order") || "AUR-892415";
   const clientName = searchParams.get("name") || "Valued Client";
-
   return (
-    <div className="pt-32 pb-24 max-w-4xl mx-auto px-5 md:px-16 text-center">
-      <div className="glass-panel p-8 sm:p-14 rounded-3xl space-y-8 border border-black/5 shadow-2xl">
-        <div className="w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center mx-auto shadow-lg">
-          <span className="material-symbols-outlined text-3xl">check</span>
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-24 max-w-4xl mx-auto px-4 sm:px-6 md:px-16 text-center">
+      <div className="glass-panel p-5 sm:p-10 md:p-14 rounded-3xl space-y-6 sm:space-y-8 border border-black/5 shadow-2xl">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary text-on-primary rounded-full flex items-center justify-center mx-auto shadow-lg">
+          <span className="material-symbols-outlined text-2xl sm:text-3xl">check</span>
         </div>
 
         <div>
           <span className="font-sans text-xs tracking-[0.25em] uppercase text-secondary mb-2 block">
             Welcome to Aurelian
           </span>
-          <h1 className="font-serif text-3xl sm:text-5xl text-primary font-normal mb-3">
+          <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl text-primary font-normal mb-3">
             Purchase Confirmed
           </h1>
-          <p className="font-sans text-sm text-secondary font-light max-w-md mx-auto">
+          <p className="font-sans text-xs sm:text-sm text-secondary font-light max-w-md mx-auto leading-relaxed">
             Thank you, {clientName}. Your commission reference number is{" "}
             <strong className="text-primary font-semibold">{orderNumber}</strong>. A confirmation email and digital monograph receipt have been dispatched.
           </p>
         </div>
 
         {/* White Glove Timeline Tracker */}
-        <div className="border-t border-b border-outline-variant/30 py-8 my-6">
+        <div className="border-t border-b border-outline-variant/30 py-6 sm:py-8 my-4 sm:my-6">
           <h3 className="font-sans text-xs tracking-[0.2em] uppercase text-primary font-semibold mb-6">
             White-Glove Fulfillment Timeline
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             <div className="space-y-1">
               <span className="w-8 h-8 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center mx-auto mb-2">1</span>
               <p className="font-sans text-xs font-semibold text-primary">Order Confirmed</p>
@@ -55,16 +54,16 @@ export default function Confirmation() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
+        <div className="flex flex-col sm:flex-row justify-center gap-3.5 sm:gap-4 pt-2">
           <button
             onClick={() => window.print()}
-            className="border border-primary text-primary font-sans text-xs tracking-[0.2em] uppercase px-8 py-3.5 rounded-full hover:bg-black/5 transition-all"
+            className="border border-primary text-primary font-sans text-xs tracking-[0.2em] uppercase px-8 py-3.5 rounded-full hover:bg-black/5 transition-all text-center"
           >
             Print Summary Receipt
           </button>
           <Link
             to="/collections"
-            className="bg-primary text-on-primary font-sans text-xs tracking-[0.2em] uppercase px-8 py-3.5 rounded-full hover:bg-surface-tint transition-all shadow-lg"
+            className="bg-primary text-on-primary font-sans text-xs tracking-[0.2em] uppercase px-8 py-3.5 rounded-full hover:bg-surface-tint transition-all shadow-lg text-center"
           >
             Return to Collections
           </Link>

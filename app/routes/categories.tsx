@@ -35,20 +35,20 @@ const CATEGORY_ITEMS = [
 
 export default function Categories() {
   return (
-    <div className="pt-32 pb-24 max-w-[1440px] mx-auto px-5 md:px-16">
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-24 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
       {/* Page Header */}
-      <header className="mb-20 text-center md:text-left">
-        <span className="font-sans text-xs tracking-[0.25em] uppercase text-secondary mb-3 block">
+      <header className="mb-12 sm:mb-20 text-center md:text-left">
+        <span className="font-sans text-xs tracking-[0.25em] uppercase text-secondary mb-2.5 block">
           Curated Spaces
         </span>
-        <h1 className="font-serif text-4xl md:text-6xl text-primary font-normal mb-6">Explore Spaces</h1>
-        <p className="font-sans text-base text-secondary max-w-2xl font-light leading-relaxed">
+        <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl text-primary font-normal mb-4">Explore Spaces</h1>
+        <p className="font-sans text-sm sm:text-base text-secondary max-w-2xl font-light leading-relaxed">
           Architectural forms categorized by space and discipline. Each collection is curated to integrate seamlessly into contemporary gallery residences.
         </p>
       </header>
 
       {/* Categories Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 lg:gap-12">
         {CATEGORY_ITEMS.map((cat) => (
           <Link
             key={cat.name}
@@ -61,20 +61,20 @@ export default function Categories() {
                 alt={cat.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-1 rounded-full text-xs font-sans text-primary font-medium shadow-sm">
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white/90 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-sans text-primary font-medium shadow-sm">
                 {cat.count} Masterpieces
               </div>
             </div>
-            <div className="p-8 flex-1 flex flex-col justify-between space-y-4">
+            <div className="p-5 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
               <div>
-                <span className="font-sans text-xs tracking-[0.2em] uppercase text-secondary block mb-1">
+                <span className="font-sans text-[11px] sm:text-xs tracking-[0.2em] uppercase text-secondary block mb-1">
                   Collection
                 </span>
-                <h2 className="font-serif text-3xl text-primary font-normal group-hover:underline underline-offset-4 decoration-1">
+                <h2 className="font-serif text-2xl sm:text-3xl text-primary font-normal group-hover:underline underline-offset-4 decoration-1">
                   {cat.name}
                 </h2>
-                <p className="font-sans text-sm font-medium text-primary/80 mt-1">{cat.tagline}</p>
-                <p className="font-sans text-xs text-secondary mt-3 leading-relaxed font-light">
+                <p className="font-sans text-xs sm:text-sm font-medium text-primary/80 mt-1">{cat.tagline}</p>
+                <p className="font-sans text-xs text-secondary mt-2.5 leading-relaxed font-light">
                   {cat.description}
                 </p>
               </div>

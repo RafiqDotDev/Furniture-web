@@ -25,15 +25,14 @@ export default function Cart() {
       setInputCode("");
     }
   };
-
   return (
-    <div className="pt-32 pb-24 max-w-[1440px] mx-auto px-5 md:px-16">
-      <header className="mb-12 border-b border-outline-variant/30 pb-6 flex justify-between items-end">
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-24 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
+      <header className="mb-8 sm:mb-12 border-b border-outline-variant/30 pb-4 sm:pb-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3">
         <div>
-          <span className="font-sans text-xs tracking-[0.25em] uppercase text-secondary mb-2 block">
+          <span className="font-sans text-xs tracking-[0.25em] uppercase text-secondary mb-1.5 block">
             Cart Overview
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl text-primary font-normal">Your Shopping Cart</h1>
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-primary font-normal">Your Shopping Cart</h1>
         </div>
         <Link
           to="/collections"
@@ -44,10 +43,10 @@ export default function Cart() {
       </header>
 
       {cart.length === 0 ? (
-        <div className="py-24 text-center glass-panel rounded-3xl p-12 max-w-2xl mx-auto">
-          <span className="material-symbols-outlined text-5xl text-outline mb-4">shopping_bag</span>
-          <h2 className="font-serif text-3xl text-primary mb-3">Your Cart is Empty</h2>
-          <p className="font-sans text-sm text-secondary mb-8 font-light max-w-md mx-auto">
+        <div className="py-16 sm:py-24 text-center glass-panel rounded-3xl p-6 sm:p-12 max-w-2xl mx-auto">
+          <span className="material-symbols-outlined text-4xl sm:text-5xl text-outline mb-4">shopping_bag</span>
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3">Your Cart is Empty</h2>
+          <p className="font-sans text-xs sm:text-sm text-secondary mb-8 font-light max-w-md mx-auto">
             Explore our curated furniture collection to add modern luxury pieces to your home.
           </p>
           <Link
@@ -58,24 +57,24 @@ export default function Cart() {
           </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Items List */}
-          <div className="lg:col-span-8 space-y-6">
+          <div className="lg:col-span-8 space-y-4 sm:space-y-6">
             {cart.map((item) => (
               <div
                 key={`${item.product.id}-${item.selectedSwatch?.name}`}
-                className="glass-panel p-6 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 border border-black/5"
+                className="glass-panel p-4 sm:p-6 rounded-2xl flex flex-row items-start space-x-4 sm:space-x-6 border border-black/5"
               >
                 <img
                   src={item.product.image}
                   alt={item.product.title}
-                  className="w-28 h-32 object-cover rounded-xl bg-surface-container-low flex-shrink-0"
+                  className="w-20 h-24 sm:w-28 sm:h-32 object-cover rounded-xl bg-surface-container-low flex-shrink-0"
                 />
 
                 <div className="flex-1 space-y-1">
                   <div className="flex justify-between items-start">
                     <Link to={`/products/${item.product.id}`}>
-                      <h3 className="font-serif text-xl text-primary font-medium hover:underline">
+                      <h3 className="font-serif text-base sm:text-xl text-primary font-medium hover:underline leading-snug">
                         {item.product.title}
                       </h3>
                     </Link>
@@ -84,7 +83,7 @@ export default function Cart() {
                       className="text-secondary hover:text-error transition-colors p-1"
                       aria-label="Remove item"
                     >
-                      <span className="material-symbols-outlined text-xl">delete</span>
+                      <span className="material-symbols-outlined text-lg sm:text-xl">delete</span>
                     </button>
                   </div>
                   {item.selectedSwatch && (
@@ -92,28 +91,28 @@ export default function Cart() {
                       Finish: <strong className="text-primary">{item.selectedSwatch.name}</strong>
                     </p>
                   )}
-                  <p className="font-sans text-xs text-secondary">{item.product.dimensions}</p>
-                  <p className="font-sans text-base font-bold text-primary pt-2">
+                  <p className="font-sans text-xs text-secondary hidden sm:block">{item.product.dimensions}</p>
+                  <p className="font-sans text-sm sm:text-base font-bold text-primary pt-1">
                     Rs. {item.product.price.toLocaleString()}
                   </p>
-                </div>
 
-                {/* Quantity Controls */}
-                <div className="flex items-center space-x-3 pt-2 sm:pt-0">
-                  <div className="flex items-center border border-outline-variant/40 rounded-full px-3 py-1 bg-surface-container-low">
-                    <button
-                      onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                      className="text-secondary hover:text-primary px-1 font-bold"
-                    >
-                      -
-                    </button>
-                    <span className="font-sans text-xs font-bold text-primary px-4">{item.quantity}</span>
-                    <button
-                      onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                      className="text-secondary hover:text-primary px-1 font-bold"
-                    >
-                      +
-                    </button>
+                  {/* Quantity Controls */}
+                  <div className="flex items-center space-x-3 pt-2">
+                    <div className="flex items-center border border-outline-variant/40 rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 bg-surface-container-low">
+                      <button
+                        onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
+                        className="text-secondary hover:text-primary px-1 text-sm font-bold"
+                      >
+                        -
+                      </button>
+                      <span className="font-sans text-xs font-bold text-primary px-3">{item.quantity}</span>
+                      <button
+                        onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                        className="text-secondary hover:text-primary px-1 text-sm font-bold"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -122,8 +121,8 @@ export default function Cart() {
 
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-4">
-            <div className="glass-panel p-8 rounded-3xl space-y-6 sticky top-32 border border-black/5 shadow-xl">
-              <h2 className="font-serif text-2xl text-primary font-normal pb-4 border-b border-outline-variant/30">
+            <div className="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 lg:sticky lg:top-32 border border-black/5 shadow-xl">
+              <h2 className="font-serif text-xl sm:text-2xl text-primary font-normal pb-4 border-b border-outline-variant/30">
                 Order Summary
               </h2>
 

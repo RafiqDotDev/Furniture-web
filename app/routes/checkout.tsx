@@ -49,20 +49,20 @@ export default function Checkout() {
   }
 
   return (
-    <div className="pt-32 pb-24 max-w-[1440px] mx-auto px-5 md:px-16">
-      <header className="mb-12 text-center md:text-left">
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-24 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
+      <header className="mb-8 sm:mb-12 text-center md:text-left">
         <span className="font-sans text-xs tracking-[0.25em] uppercase text-secondary mb-2 block">
           Order Checkout
         </span>
-        <h1 className="font-serif text-4xl md:text-5xl text-primary font-normal">Checkout</h1>
+        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-primary font-normal">Checkout</h1>
       </header>
 
-      <form onSubmit={handleSubmitOrder} className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <form onSubmit={handleSubmitOrder} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         {/* Left Column: Checkout Form */}
-        <div className="lg:col-span-7 space-y-10">
+        <div className="lg:col-span-7 space-y-6 sm:space-y-10">
           {/* Shipping Address */}
-          <div className="glass-panel p-8 rounded-3xl space-y-6 border border-black/5">
-            <h2 className="font-serif text-2xl text-primary font-medium border-b border-outline-variant/30 pb-3">
+          <div className="glass-panel p-5 sm:p-8 rounded-3xl space-y-6 border border-black/5">
+            <h2 className="font-serif text-xl sm:text-2xl text-primary font-medium border-b border-outline-variant/30 pb-3">
               1. Delivery Address & Contact
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -154,40 +154,40 @@ export default function Checkout() {
           </div>
 
           {/* Delivery Option */}
-          <div className="glass-panel p-8 rounded-3xl space-y-4 border border-black/5">
-            <h2 className="font-serif text-2xl text-primary font-medium border-b border-outline-variant/30 pb-3">
+          <div className="glass-panel p-5 sm:p-8 rounded-3xl space-y-4 border border-black/5">
+            <h2 className="font-serif text-xl sm:text-2xl text-primary font-medium border-b border-outline-variant/30 pb-3">
               2. White-Glove Home Delivery
             </h2>
-            <label className="flex items-center p-4 border border-primary rounded-2xl cursor-pointer bg-surface-container-low/50">
+            <label className="flex items-start sm:items-center p-3.5 sm:p-4 border border-primary rounded-2xl cursor-pointer bg-surface-container-low/50">
               <input
                 type="radio"
                 name="deliveryOption"
                 value="white-glove"
                 checked={true}
                 readOnly
-                className="accent-primary"
+                className="accent-primary mt-1 sm:mt-0"
               />
-              <div className="ml-4 flex-1">
-                <span className="font-serif text-base text-primary font-semibold block">
+              <div className="ml-3 sm:ml-4 flex-1">
+                <span className="font-serif text-sm sm:text-base text-primary font-semibold block">
                   Free In-Room Placement & Full Assembly
                 </span>
                 <span className="font-sans text-xs text-secondary font-light">
                   Delivered by our specialist furniture team directly to your room.
                 </span>
               </div>
-              <span className="font-sans text-xs font-bold text-primary">
+              <span className="font-sans text-xs font-bold text-primary ml-2">
                 {subtotal > 200000 ? "FREE" : "Rs. 5,000"}
               </span>
             </label>
           </div>
 
           {/* Payment Method */}
-          <div className="glass-panel p-8 rounded-3xl space-y-6 border border-black/5">
-            <h2 className="font-serif text-2xl text-primary font-medium border-b border-outline-variant/30 pb-3">
+          <div className="glass-panel p-5 sm:p-8 rounded-3xl space-y-6 border border-black/5">
+            <h2 className="font-serif text-xl sm:text-2xl text-primary font-medium border-b border-outline-variant/30 pb-3">
               3. Select Payment Method
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
               {[
                 { id: "cod", label: "Cash on Delivery" },
                 { id: "bank", label: "Direct Bank Transfer" },
@@ -197,7 +197,7 @@ export default function Checkout() {
                   type="button"
                   key={method.id}
                   onClick={() => setFormData({ ...formData, paymentMethod: method.id })}
-                  className={`py-3.5 px-4 rounded-xl border text-xs font-sans uppercase tracking-wider transition-all ${
+                  className={`py-3 px-3 sm:px-4 rounded-xl border text-xs font-sans uppercase tracking-wider transition-all ${
                     formData.paymentMethod === method.id
                       ? "border-primary bg-primary text-on-primary font-bold shadow-md"
                       : "border-outline-variant/40 text-secondary bg-white hover:border-primary"
@@ -230,8 +230,8 @@ export default function Checkout() {
 
         {/* Right Column: Order Summary */}
         <div className="lg:col-span-5">
-          <div className="glass-panel p-8 rounded-3xl space-y-6 sticky top-32 border border-black/5 shadow-2xl">
-            <h2 className="font-serif text-2xl text-primary font-normal pb-4 border-b border-outline-variant/30">
+          <div className="glass-panel p-5 sm:p-8 rounded-3xl space-y-6 lg:sticky lg:top-32 border border-black/5 shadow-2xl">
+            <h2 className="font-serif text-xl sm:text-2xl text-primary font-normal pb-4 border-b border-outline-variant/30">
               Order Summary ({cart.length} items)
             </h2>
 
@@ -277,7 +277,7 @@ export default function Checkout() {
 
             <button
               type="submit"
-              className="w-full bg-primary text-on-primary font-sans text-xs tracking-[0.2em] uppercase py-4 rounded-2xl hover:bg-surface-tint transition-all shadow-xl font-bold"
+              className="w-full bg-primary text-on-primary font-sans text-xs tracking-[0.2em] uppercase py-4 rounded-2xl hover:bg-surface-tint transition-all shadow-xl font-bold active:scale-[0.99]"
             >
               Place Order — Rs. {total.toLocaleString()}
             </button>

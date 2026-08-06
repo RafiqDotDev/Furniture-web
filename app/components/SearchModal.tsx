@@ -23,18 +23,18 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
     : [];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/40 backdrop-blur-md transition-opacity">
-      <div className="bg-surface-container-lowest glass-panel w-full max-w-2xl rounded-2xl p-6 shadow-2xl border border-black/10 flex flex-col">
-        <div className="flex items-center justify-between pb-4 border-b border-outline-variant/30">
-          <div className="flex items-center flex-1 mr-4">
-            <span className="material-symbols-outlined text-secondary text-2xl mr-3">search</span>
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-4 sm:pt-20 px-3 sm:px-4 bg-black/50 backdrop-blur-md transition-opacity">
+      <div className="bg-surface-container-lowest glass-panel w-full max-w-2xl rounded-2xl p-4 sm:p-6 shadow-2xl border border-black/10 flex flex-col max-h-[88vh] animate-in fade-in zoom-in-95 duration-200">
+        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-outline-variant/30">
+          <div className="flex items-center flex-1 mr-2 sm:mr-4">
+            <span className="material-symbols-outlined text-secondary text-xl sm:text-2xl mr-2 sm:mr-3">search</span>
             <input
               type="text"
               autoFocus
               placeholder="Search collections, seating, marble, walnut..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full bg-transparent border-none text-primary font-sans text-lg focus:outline-none focus:ring-0 placeholder:text-secondary/60"
+              className="w-full bg-transparent border-none text-primary font-sans text-base sm:text-lg focus:outline-none focus:ring-0 placeholder:text-secondary/60"
             />
           </div>
           <button

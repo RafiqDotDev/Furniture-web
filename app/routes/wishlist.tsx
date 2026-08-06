@@ -6,15 +6,14 @@ import { useCart } from "~/context/CartContext";
 export default function Wishlist() {
   const { wishlistProducts, toggleWishlist, clearWishlist } = useWishlist();
   const { addToCart } = useCart();
-
   return (
-    <div className="pt-32 pb-24 max-w-[1440px] mx-auto px-5 md:px-16">
-      <header className="mb-12 border-b border-outline-variant/30 pb-6 flex justify-between items-end">
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-24 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
+      <header className="mb-8 sm:mb-12 border-b border-outline-variant/30 pb-4 sm:pb-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3">
         <div>
-          <span className="font-sans text-xs tracking-[0.25em] uppercase text-secondary mb-2 block">
+          <span className="font-sans text-xs tracking-[0.25em] uppercase text-secondary mb-1.5 block">
             Curated Favorites
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl text-primary font-normal">Your Wishlist</h1>
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-primary font-normal">Your Wishlist</h1>
         </div>
         {wishlistProducts.length > 0 && (
           <button
@@ -27,10 +26,10 @@ export default function Wishlist() {
       </header>
 
       {wishlistProducts.length === 0 ? (
-        <div className="py-24 text-center glass-panel rounded-3xl p-12 max-w-2xl mx-auto">
-          <span className="material-symbols-outlined text-5xl text-outline mb-4">favorite</span>
-          <h2 className="font-serif text-3xl text-primary mb-3">No Saved Favorites</h2>
-          <p className="font-sans text-sm text-secondary mb-8 font-light max-w-md mx-auto">
+        <div className="py-16 sm:py-24 text-center glass-panel rounded-3xl p-6 sm:p-12 max-w-2xl mx-auto">
+          <span className="material-symbols-outlined text-4xl sm:text-5xl text-outline mb-4">favorite</span>
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3">No Saved Favorites</h2>
+          <p className="font-sans text-xs sm:text-sm text-secondary mb-8 font-light max-w-md mx-auto">
             Save architectural furniture pieces to your personal wishlist as you browse our collections.
           </p>
           <Link
@@ -41,9 +40,9 @@ export default function Wishlist() {
           </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {wishlistProducts.map((product) => (
-            <div key={product.id} className="glass-panel p-6 rounded-3xl space-y-4 border border-black/5 flex flex-col justify-between">
+            <div key={product.id} className="glass-panel p-5 sm:p-6 rounded-3xl space-y-4 border border-black/5 flex flex-col justify-between">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-surface-container-low mb-2">
                 <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
                 <button
@@ -60,12 +59,12 @@ export default function Wishlist() {
                   {product.category}
                 </span>
                 <Link to={`/products/${product.id}`}>
-                  <h3 className="font-serif text-xl text-primary font-normal hover:underline">
+                  <h3 className="font-serif text-lg sm:text-xl text-primary font-normal hover:underline">
                     {product.title}
                   </h3>
                 </Link>
                 <p className="font-sans text-xs text-secondary line-clamp-2">{product.subtitle}</p>
-                <p className="font-sans text-base font-bold text-primary pt-2">
+                <p className="font-sans text-sm sm:text-base font-bold text-primary pt-2">
                   Rs. {product.price.toLocaleString()}
                 </p>
               </div>
@@ -73,7 +72,7 @@ export default function Wishlist() {
               <div className="pt-2">
                 <button
                   onClick={() => addToCart(product)}
-                  className="w-full bg-primary text-on-primary font-sans text-xs tracking-widest uppercase py-3 rounded-xl hover:bg-surface-tint transition-all"
+                  className="w-full bg-primary text-on-primary font-sans text-xs tracking-widest uppercase py-3 rounded-xl hover:bg-surface-tint transition-all active:scale-[0.98]"
                 >
                   Add to Cart
                 </button>

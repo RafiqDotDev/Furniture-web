@@ -12,18 +12,18 @@ export const CartDrawer: React.FC = () => {
       {/* Backdrop */}
       <div
         onClick={() => setIsCartOpen(false)}
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity animate-in fade-in duration-300"
+        className="absolute inset-0 bg-black/50 backdrop-blur-xs transition-opacity animate-in fade-in duration-300"
       />
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-surface-container-lowest glass-panel shadow-2xl border-l border-outline-variant/30 flex flex-col">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+        <div className="w-screen max-w-full sm:max-w-md bg-surface-container-lowest glass-panel shadow-2xl border-l border-outline-variant/30 flex flex-col animate-in slide-in-from-right duration-300">
           {/* Header */}
-          <div className="p-6 border-b border-outline-variant/30 flex items-center justify-between">
-            <h2 className="font-serif text-2xl text-primary font-medium">Your Collection</h2>
+          <div className="p-4 sm:p-6 border-b border-outline-variant/30 flex items-center justify-between">
+            <h2 className="font-serif text-xl sm:text-2xl text-primary font-medium">Your Collection ({cart.length})</h2>
             <button
               onClick={() => setIsCartOpen(false)}
               aria-label="Close cart"
-              className="text-secondary hover:text-primary transition-colors p-1"
+              className="text-secondary hover:text-primary transition-colors p-1.5 rounded-full hover:bg-black/5"
             >
               <span className="material-symbols-outlined text-2xl">close</span>
             </button>
